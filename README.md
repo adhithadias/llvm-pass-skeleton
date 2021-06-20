@@ -9,9 +9,10 @@ Build:
     $ mkdir build
     $ cd build
     $ cmake ..
+    $ LLVM_DIR=~/software/llvm-project/build/bin/llvm cmake ..
     $ make
     $ cd ..
 
 Run:
 
-    $ clang -Xclang -load -Xclang build/skeleton/libSkeletonPass.* something.c
+    $ clang -Xclang -load -Xclang ../build/skeleton/libSkeletonPass.* something.c

@@ -11,7 +11,14 @@ namespace {
     SkeletonPass() : FunctionPass(ID) {}
 
     virtual bool runOnFunction(Function &F) {
-      errs() << "I saw a function called " << F.getName() << "!\n";
+      errs() << "\n\nI saw a function called " << F.getName() << "!\n";
+      errs() << "Function body: \n" << F << "\n";
+      for (auto& B : F) {
+        errs() << "Basic block: \n" << B << "\n";
+        for (auto& I : B) {
+          errs() << "Instruction: " << I << "\n";
+        }
+      }
       return false;
     }
   };
